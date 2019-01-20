@@ -1,37 +1,54 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<title>Products</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Product list</title>
 </head>
+<body>
+	<div class="container" id="productTable"
+		style="width: 1145px; margin-bottom: 180px;">
+		<h2>Product Management</h2>
+		<p>The List of Products in our Database</p>
+		<table class="table table-hover" id="productList">
+			<thead>
+				<tr>
+					<th>Product Id</th>
+					<th>Product Name</th>
+					<th>Product Type</th>
+					<th>Product Summary</th>
+					<th>Product Price</th>
+					<th>Product Discount</th>
+					<th>Product Image</th>
+					<th>Unit in stock</th>
+					<th>Product Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${productList}" var="prod">
+					<tr>
 
-
-<div class="container">
-	<form action="/logout" method="post">
-		<input type="submit" value="Sign Out" />
-	</form>
-	<c:forEach items="${productList}" var="prod">
-		<table>
-			<tr>
-				<td>productID</td>
-				<td>productName</td>
-			</tr>
-			<tr>
-				<td>${prod.productId}</td>
-				<td>${prod.productName}</td>
-			</tr>
+						<td><a href="products/${prod.productId}"> ${prod.productId}</a></td>
+						<td>${prod.productName}</td>
+						<td>${prod.productType}</td>
+						<td>${prod.productSummary}</td>
+						<td>${prod.productPrice}</td>
+						<td>${prod.productDiscount}</td>
+						<td>${prod.productImg}</td>
+						<td>${prod.unitInStock}</td>
+						<td>${prod.productPrice}</td>
+						<td><a href="getProductById/${prod.productId}" role="button">
+						</a> <a href="#" style="margin-left: 5px"> <span></span></a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
-	</c:forEach>
-	<hr>
-	<footer>
-		<p>&copy; Mkyong.com 2015</p>
-	</footer>
-</div>
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+	</div>
 </body>
 </html>
+<%@ include file="footer.jsp"%>

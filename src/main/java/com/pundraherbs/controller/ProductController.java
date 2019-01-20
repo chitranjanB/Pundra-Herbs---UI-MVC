@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pundraherbs.model.Product;
+import com.pundraherbs.model.ProductInfo;
 import com.pundraherbs.service.IProductService;
 
 @Controller
@@ -20,14 +20,14 @@ public class ProductController {
 
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public String getProducts(ModelMap model) {
-		List<Product> productList = productService.getAllProducts();
+		List<ProductInfo> productList = productService.getAllProducts();
 		model.addAttribute("productList", productList);
 		return "products";
 	}
 
 	@RequestMapping(value = "/products/{productId}", method = RequestMethod.GET)
 	public String getProduct(@PathVariable(value = "productId") Long productId, ModelMap model) {
-		Product product = productService.getProduct(productId);
+		ProductInfo product = productService.getProduct(productId);
 		model.addAttribute("product", product);
 		return "product";
 	}

@@ -27,5 +27,7 @@
 			<input type="submit" value="Sign In" />
 		</div>
 	</form>
+	
+	<%@ include file="footer.jsp"%> 
 </body>
 </html>

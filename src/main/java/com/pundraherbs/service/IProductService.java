@@ -2,10 +2,10 @@ package com.pundraherbs.service;
 
 import java.util.List;
 
-import com.pundraherbs.model.Product;
+import com.pundraherbs.model.ProductInfo;
 
 public interface IProductService {
-	public List<Product> getAllProducts();
+	public List<ProductInfo> getAllProducts();
 
-	public Product getProduct(Long productId);
+	public ProductInfo getProduct(Long productId);
 }

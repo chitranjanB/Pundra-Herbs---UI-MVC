@@ -8,5 +8,7 @@
      <form action="/logout" method="post">
          <input type="submit" value="Sign Out"/>
      </form>
+     
+     <%@ include file="footer.jsp"%> 
  </body>
 </html>

@@ -9,4 +9,5 @@
 <body>
 	<h1 style="color: blue">Access is Denied!</h1>
 </body>
+<%@ include file="footer.jsp"%> 
 </html>

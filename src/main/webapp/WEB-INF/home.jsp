@@ -14,7 +14,7 @@
 		<p></p>
 		<p>
 			<a class="btn btn-primary btn-lg" href="products" role="button">Products</a>
-			<a class="btn btn-primary btn-lg" href="products/101" role="button">Product
+			<a class="btn btn-primary btn-lg" href="products/1" role="button">Product
 				101</a>
 		</p>
 	</div>
@@ -23,9 +23,7 @@
 <div class="container">
 
 	<hr>
-	<footer>
-		<p>&copy; Mkyong.com 2015</p>
-	</footer>
+	<%@ include file="footer.jsp"%> 
 </div>
 
 

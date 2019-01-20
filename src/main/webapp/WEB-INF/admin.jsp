@@ -7,6 +7,6 @@
 <title>Admin</title>
 </head>
 <body>
-
+<%@ include file="footer.jsp"%> 
 </body>
 </html>

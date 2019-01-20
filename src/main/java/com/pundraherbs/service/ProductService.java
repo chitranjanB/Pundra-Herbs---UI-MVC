@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.pundraherbs.model.Product;
+import com.pundraherbs.model.ProductInfo;
 
 @Service
 public class ProductService implements IProductService {
@@ -16,19 +16,19 @@ public class ProductService implements IProductService {
 	RestTemplate restTemplate = new RestTemplate();
 
 	@Override
-	public List<Product> getAllProducts() {
+	public List<ProductInfo> getAllProducts() {
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<List<Product>> response = restTemplate.exchange("http://localhost:8081/products/",
-				HttpMethod.GET, null, new ParameterizedTypeReference<List<Product>>() {
+		ResponseEntity<List<ProductInfo>> response = restTemplate.exchange("http://localhost:8081/products/", HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<ProductInfo>>() {
 				});
-		List<Product> products = response.getBody();
+		List<ProductInfo> products = response.getBody();
 		return products;
 	}
 
 	@Override
-	public Product getProduct(Long productId) {
-		int pId= Integer.parseInt(productId.toString());
-		Product product = restTemplate.getForObject("http://localhost:8081/products/"+pId, Product.class);
+	public ProductInfo getProduct(Long productId) {
+		int pId = Integer.parseInt(productId.toString());
+		ProductInfo product = restTemplate.getForObject("http://localhost:8081/products/" + pId, ProductInfo.class);
 		return product;
 	}
 

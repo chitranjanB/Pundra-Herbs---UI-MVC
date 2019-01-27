@@ -8,12 +8,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"
-	href="<c:url value="/resource/bootstrap/css/bootstrap.min.css"/>">
-<script src="<c:url value="/resource/js/jquery.js"/>"></script>
-<script src="<c:url value="/resource/bootstrap/js/bootstrap.min.js"/>"></script>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/resource/css/overall.css"/>">
 </head>
 <body>
 	<footer>
@@ -24,11 +18,16 @@
 			<a href="<c:url value="/"/>">Home</a> · <a
 				href="<c:url value="/aboutus"/>">About Us</a> · <a
 				href="<c:url value="/products" />">Product List</a> · <a
-				href="<c:url value="/contactus"/>">Contact Us</a>
-
+				href="<c:url value="/contactus"/>">Contact Us</a> 
 		</p>
 
-
+		<c:if test="${pageContext.request.userPrincipal.name != null}">
+			<h2>
+				<form action="/logout" method="post">
+         			<input type="submit" value="Sign Out"/>
+     			</form>
+			</h2>
+		</c:if>
 		<p>Created by Chitranjan @PundraHerbs &copy; 2017</p>
 	</div>
 	</footer>

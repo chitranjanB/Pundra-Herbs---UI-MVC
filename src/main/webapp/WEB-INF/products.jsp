@@ -27,13 +27,14 @@
 					<th>Product Image</th>
 					<th>Unit in stock</th>
 					<th>Product Price</th>
+					<th>Add to cart</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${productList}" var="prod">
 					<tr>
 
-						<td><a href="products/${prod.productId}"> ${prod.productId}</a></td>
+						<td><a href="products/${prod.productId}">${prod.productId}</a></td>
 						<td>${prod.productName}</td>
 						<td>${prod.productType}</td>
 						<td>${prod.productSummary}</td>
@@ -44,6 +45,9 @@
 						<td>${prod.productPrice}</td>
 						<td><a href="getProductById/${prod.productId}" role="button">
 						</a> <a href="#" style="margin-left: 5px"> <span></span></a></td>
+						<td align="center"><a
+							href="${pageContext.request.contextPath }/cart/buy/${prod.productId}">Add
+								to cart</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -23,7 +23,7 @@
 <div class="container">
 
 	<hr>
-	<%@ include file="footer.jsp"%> 
+	<%@ include file="footer.jsp"%>
 </div>
 
 

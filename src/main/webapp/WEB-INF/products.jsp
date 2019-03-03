@@ -7,6 +7,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="../webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
+<script src="../webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="../webjars/jquery/1.9.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product list</title>
 </head>
@@ -14,6 +18,7 @@
 	<div class="container" id="productTable"
 		style="width: 1145px; margin-bottom: 180px;">
 		<h2>Product Management</h2>
+
 		<p>The List of Products in our Database</p>
 		<table class="table table-hover" id="productList">
 			<thead>
@@ -27,7 +32,12 @@
 					<th>Product Image</th>
 					<th>Unit in stock</th>
 					<th>Product Price</th>
-					<th>Add to cart</th>
+					<th>Cart<c:choose>
+							<c:when test="${!empty sessionScope.cart}">
+								<span class="badge">${sessionScope.cart.size()}</span>
+							</c:when>
+						</c:choose>
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,8 +53,8 @@
 						<td>${prod.productImg}</td>
 						<td>${prod.unitInStock}</td>
 						<td>${prod.productPrice}</td>
-						<td><a href="getProductById/${prod.productId}" role="button">
-						</a> <a href="#" style="margin-left: 5px"> <span></span></a></td>
+						<%-- <td><a href="getProductById/${prod.productId}" role="button">
+						</a> <a href="#" style="margin-left: 5px"> <span></span></a></td> --%>
 						<td align="center"><a
 							href="${pageContext.request.contextPath }/cart/buy/${prod.productId}">Add
 								to cart</a></td>

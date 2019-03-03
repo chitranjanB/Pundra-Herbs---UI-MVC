@@ -13,13 +13,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/admin", "/h2_console/**").hasRole("ADMIN").anyRequest().authenticated()
 				.and().formLogin().loginPage("/login").permitAll().and().logout().permitAll();
 		http.exceptionHandling().accessDeniedPage("/403");
+		http.authorizeRequests().antMatchers("/webjars/**").permitAll();
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 	}
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("user").password("{noop}user").roles("USER").and().withUser("admin")
+		auth.inMemoryAuthentication().withUser("10").password("{noop}user").roles("USER").and().withUser("admin")
 				.password("{noop}admin").roles("ADMIN");
 	}
 }

@@ -18,4 +18,6 @@ public interface IOrderService {
 
 	public List<OrderInfo> getPendingOrdersByUserId(Long userId);
 
+	OrderInfo getOrderByUser(Long orderId, Long userId);
+
 }

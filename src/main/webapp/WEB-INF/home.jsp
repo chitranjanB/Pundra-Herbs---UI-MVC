@@ -11,12 +11,6 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1>Home Page</h1>
-		<p></p>
-		<p>
-			<a class="btn btn-primary btn-lg" href="products" role="button">Products</a>
-			<a class="btn btn-primary btn-lg" href="products/1" role="button">Product
-				101</a>
-		</p>
 	</div>
 </div>
 

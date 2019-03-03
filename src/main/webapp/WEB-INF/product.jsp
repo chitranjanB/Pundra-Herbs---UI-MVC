@@ -57,25 +57,18 @@
 					<td>${product.unitInStock}</td>
 				</tr>
 				<tr>
-					<td>Add to Cart:</td>
-					<%-- <td><c:url value="/cart/add/${product.productId}"
-							var="addcart"></c:url>
-						<div ng-controller="myController">
-							<security:authorize access="hasRole('ROLE_USER')">
-								<a href="#" ng-click="addToCart(${product.productId})"
-									class="btn btn-info"
-									style="margin-top: 0px; width: 150px; float: left; margin-right: 31px;">
-									<span class="glyphicon glyphicon-shopping-cart"></span>
-								</a>
-							</security:authorize>
-							<a href="<c:url value="/getAllProducts" />" class="btn btn-info"
-								style="margin-top: 0px; width: 150px; float: right; margin-right: 31px;">
-								<span class="glyphicon glyphicon-arrow-left"></span>
-							</a>
-						</div></td> --%>
+					<td><a
+						href="${pageContext.request.contextPath}/products/${product.productId}/review">See
+							product review</a></td>
+				</tr>
+				<tr>
+					<td><a
+						href="${pageContext.request.contextPath}/cart/buy/${product.productId}">Add
+							to cart</a></td>
 				</tr>
 			</tbody>
 		</table>
+
 	</div>
 </body>
 </html>

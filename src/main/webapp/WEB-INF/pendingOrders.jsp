@@ -14,8 +14,6 @@
 	<div class="container" id="productTable">
 		<h2>Order Management</h2>
 		<p>The List of Order in our Database</p>
-		<c:choose>
-		<c:when test="${!empty orders}">
 		<table>
 			<thead>
 				<tr>
@@ -26,19 +24,12 @@
 			<tbody>
 				<c:forEach items="${orders}" var="order">
 					<tr>
-						<td><a
-							href="${pageContext.request.contextPath}/orders/${order.orderId}/user/${userId}">${order.orderId}</a></td>
+						<td>${order.orderId}</td>
 						<td>${order.orderStatus}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		</c:when>
-		<c:otherwise>
-			<h1>There are no orders</h1>
-		</c:otherwise>
-		</c:choose>
-		
 	</div>
 </body>
 </html>

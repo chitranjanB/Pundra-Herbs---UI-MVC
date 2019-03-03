@@ -16,9 +16,9 @@
 
 		<p class="footer-links">
 			<a href="<c:url value="/"/>">Home</a> · <a
-				href="<c:url value="/aboutus"/>">About Us</a> · <a
-				href="<c:url value="/products" />">Product List</a> · <a
-				href="<c:url value="/contactus"/>">Contact Us</a> 
+				href="<c:url value="/products" />">Product List</a> .
+				<a href="<c:url value="/orders/users/10"/>">Orders</a> · 
+				<a href="<c:url value="/contactus"/>">Contact Us</a> 
 		</p>
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">

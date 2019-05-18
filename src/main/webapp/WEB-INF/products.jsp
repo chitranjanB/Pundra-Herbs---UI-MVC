@@ -14,54 +14,52 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product list</title>
 </head>
+<style>
+.badge {
+	position: fixed;
+	right: 10px;
+	top: 50px;
+}
+</style>
 <body>
 	<div class="container" id="productTable"
 		style="width: 1145px; margin-bottom: 180px;">
-		<h2>Product Management</h2>
 
-		<p>The List of Products in our Database</p>
-		<table class="table table-hover" id="productList">
-			<thead>
-				<tr>
-					<th>Product Id</th>
-					<th>Product Name</th>
-					<th>Product Type</th>
-					<th>Product Summary</th>
-					<th>Product Price</th>
-					<th>Product Discount</th>
-					<th>Product Image</th>
-					<th>Unit in stock</th>
-					<th>Product Price</th>
-					<th>Cart<c:choose>
-							<c:when test="${!empty sessionScope.cart}">
-								<span class="badge">${sessionScope.cart.size()}</span>
-							</c:when>
-						</c:choose>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${productList}" var="prod">
-					<tr>
+		<%@ include file="header.jsp"%>
 
-						<td><a href="products/${prod.productId}">${prod.productId}</a></td>
-						<td>${prod.productName}</td>
-						<td>${prod.productType}</td>
-						<td>${prod.productSummary}</td>
-						<td>${prod.productPrice}</td>
-						<td>${prod.productDiscount}</td>
-						<td>${prod.productImg}</td>
-						<td>${prod.unitInStock}</td>
-						<td>${prod.productPrice}</td>
-						<%-- <td><a href="getProductById/${prod.productId}" role="button">
-						</a> <a href="#" style="margin-left: 5px"> <span></span></a></td> --%>
-						<td align="center"><a
-							href="${pageContext.request.contextPath }/cart/buy/${prod.productId}">Add
-								to cart</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<div class="page-header">
+			<h1 id="banner">Products</h1>
+			<p>Ayurvedic medicines by Pundra Herbs</p>
+		</div>
+
+
+		<c:forEach items="${productList}" var="prod">
+			<div class="col-md-4">
+				<div class="card mb-4 box-shadow">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="${prod.productName}"
+						style="height: 225px; width: 100%; display: block;" src=""
+						data-holder-rendered="true">
+					<div class="card-body">
+						<p class="card-text">${prod.productSummary}</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<a href="products/${prod.productId}">
+									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+								</a> <a
+									href="${pageContext.request.contextPath }/cart/buy/${prod.productId}"><button
+										type="button" class="btn btn-sm btn-outline-secondary">Add
+										to Cart</button></a>
+
+							</div>
+							<small class="text-muted">9 mins</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+
 	</div>
 </body>
 </html>

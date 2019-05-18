@@ -4,30 +4,50 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 <body>
-	<c:if test="${not empty error}">
-		<h1 style="color: red">${error}</h1>
-	</c:if>
+	<div class="container">
+		<%@ include file="header.jsp"%>
 
-	<c:if test="${not empty logout}">
-		<h1 style="color: blue">Logged out.</h1>
-	</c:if>
+		<c:if test="${not empty error}">
+			<div class="alert alert-danger alert-dismissible fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				Please authorize yourself.
+			</div>
+		</c:if>
 
-	<h1 id="banner">Login to Pundra Herbs</h1>
-	<form action="/login" method="post">
-		<div>
-			<label> User Name : <input type="text" name="username" />
-			</label>
+		<c:if test="${not empty logout}">
+			<div class="alert alert-success alert-dismissible fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				You have been successfully logged out.
+			</div>
+		</c:if>
+
+		<div class="page-header">
+			<h1 id="banner">Login to Pundra Herbs</h1>
 		</div>
-		<div>
-			<label> Password: <input type="password" name="password" />
-			</label>
-		</div>
-		<div>
-			<input type="submit" value="Sign In" />
-		</div>
-	</form>
-	
-	<%@ include file="footer.jsp"%> 
+		<form action="/login" method="post">
+			<div class="form-group">
+				<label for="userName">Name:</label> <input type="text"
+					class="form-control" name="username" id="userName" />
+			</div>
+			<div class="form-group">
+				<label for="pwd">Password:</label> <input type="password"
+					class="form-control" name="password" id="pwd" />
+			</div>
+			<div>
+				<input type="submit" class="btn btn-info" value="Sign In">
+			</div>
+		</form>
+
+		<%@ include file="footer.jsp"%>
+	</div>
 </body>
 </html>
